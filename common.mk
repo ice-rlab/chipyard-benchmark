@@ -159,6 +159,10 @@ $(FINAL_ANNO_FILE) $(MFC_EXTRA_ANNO_FILE) &: $(ANNO_FILE)
 .PHONY: firrtl
 firrtl: $(FIRRTL_FILE) $(FINAL_ANNO_FILE)
 
+
+.PHONY: ir-hw
+ir-hw: $(FIRRTL_FILE)
+	firtool $(FIRRTL_FILE) --ir-hw > $(HW_DIALECT_FILE)
 #########################################################################################
 # create verilog files rules and variables
 #########################################################################################
